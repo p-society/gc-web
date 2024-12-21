@@ -10,33 +10,17 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gc-broadcast-web/components/*": [
-        "libs/components/src/*"
-      ],
-      "@gc-broadcast-web/config/*": [
-        "libs/config/src/*"
-      ],
-      "@gc-broadcast-web/hooks/*": [
-        "libs/hooks/src/*"
-      ],
-      "@gc-broadcast-web/redux/*": [
-        "libs/redux/src/*"
-      ],
-      "@gc-broadcast-web/utils/*": [
-        "libs/utils/src/*"
-      ]
+      "@gc-broadcast-web/components/*": ["libs/components/src/*"],
+      "@gc-broadcast-web/config/*": ["libs/config/src/*"],
+      "@gc-broadcast-web/hooks/*": ["libs/hooks/src/*"],
+      "@gc-broadcast-web/redux/*": ["libs/redux/src/*"],
+      "@gc-broadcast-web/utils/*": ["libs/utils/src/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

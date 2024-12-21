@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev:start:auth": "nx dev auth"
+    "dev:start:auth": "PORT=3000 nx dev auth",
+    "dev:start:console": "PORT=3001 nx dev console"
   },
   "private": true,
   "dependencies": {
@@ -86,6 +87,7 @@
     "@types/node": "18.16.9",
     "@types/react": "18.3.1",
     "@types/react-dom": "18.3.0",
+    "@types/react-lazy-load-image-component": "^1.6.4",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
     "babel-jest": "^29.7.0",

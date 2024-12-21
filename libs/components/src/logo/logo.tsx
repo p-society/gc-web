@@ -44,7 +44,7 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
         }}
         {...other}
       >
-        <img src={'/psoc_logo.png'} alt={'psoc logo'} height={'100%'} width={'100%'} />
+        <img src={'/psoc_logo.png'} alt={''} height={'100%'} width={'100%'} />
       </Box>
     );
 

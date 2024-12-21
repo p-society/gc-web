@@ -54,9 +54,9 @@ export default function NavVertical({ openNav, onCloseNav, navData }: Props) {
       }}
     >
       {/*<Logo sx={{ mt: 3, ml: 4, mb: 1 }} />*/}
-      <Box sx={{ mt: 3, ml: 1, mb: 1, mr: 4 }}>
+      <Box sx={{ mt: 3, mb: 1, ml: 4 }}>
         <Link component={RouterLink} href="/" sx={{ display: 'contents' }}>
-          <img src={'/logo/logo_full.svg'} alt={'psoc logo'} height={'auto'} width={'100%'} />
+          <img src={'/psoc_logo.png'} alt={'psoc logo'} height={'auto'} width={'30%'} />
         </Link>
       </Box>
       <NavSectionVertical

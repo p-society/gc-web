@@ -14,12 +14,12 @@ export default function NavUpgrade() {
     >
       <Stack alignItems="center">
         <Stack spacing={0.5} sx={{ mb: 1, mt: 1, width: 1 }}>
-          <Typography variant="subtitle2" noWrap sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Typography variant="subtitle2" noWrap sx={{ display: 'flex', justifyContent: 'center', mt: '"auto"' }}>
             Powered by <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} component="a"
-              href="" target="_blank"><Box component="img" alt="Psoc"
-                src=""
+              href="https://gsoubhik.netlify.app/" target="_blank"><Box component="img" alt="GCB"
+                src={'/psoc_logo.png'}
                 sx={{
-                  height: 18,
+                  height: 25,
                   width: 'auto',
                   ml: '8px'
                 }} /></Box>

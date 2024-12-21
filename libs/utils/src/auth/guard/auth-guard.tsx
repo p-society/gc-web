@@ -36,7 +36,7 @@ export const ValidateToken = ({ children }: { children: React.ReactNode; }) => {
         // setLoading(false);
         return;
       }
-      const resp = await axios.get("http://localhost:3000/authentication/verify", {
+      const resp = await axios.get("http://localhost:3030/authentication/verify", {
         headers: {
           "Authorization": "Bearer " + access_token
         }
