@@ -3,18 +3,18 @@ import { Swiper, SwiperClass, SwiperSlide, SwiperRef } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useNavigate } from "react-router-dom";
 
-import "../../css/onboard/onboard.css";
-import OnboardingLast from "./onboard_last"; 
+import "./onboard.css";
 
 const SwiperOnboard: React.FC = () => {
     const swiperRef = useRef<SwiperRef | null>(null);
     const [isLastSlide, setIsLastSlide] = useState(false);
-    const [showLastScreen, setShowLastScreen] = useState(false);
+    const navigate = useNavigate();
 
     const handleNext = (): void => {
         if (isLastSlide) {
-            setShowLastScreen(true)
+            navigate('/onboarding-last');
         } else if (swiperRef.current?.swiper ) {
             swiperRef.current.swiper.slideNext();
         }
@@ -23,10 +23,6 @@ const SwiperOnboard: React.FC = () => {
     const onSlideChange = (swiper: SwiperClass): void => {
         setIsLastSlide(swiper.isEnd);
     };
-
-    if (showLastScreen) {
-        return <OnboardingLast />;
-    }
 
     return (
         <div className="onboard_wrapper">
@@ -51,7 +47,7 @@ const SwiperOnboard: React.FC = () => {
                 <button onClick={handleNext}>Next</button>
             </div>
             <div className="skip_button">
-                <a onClick={() => setShowLastScreen(true)} className="skip_button_link"> SKIP → </a>
+                <a onClick={() => navigate('/onboarding-last')} className="skip_button_link"> SKIP → </a>
             </div>
         </div>
     );
