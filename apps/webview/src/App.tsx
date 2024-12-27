@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import React from "react";
-import './assets/css/global/page.css'
-import SwiperOnboard from "./assets/pages/onboarding/onboard";
-import Dashboard from "./assets/pages/dashboard/dashboard";
-import OnboardingLast from './assets/pages/onboarding/onboard_last';
-import LoginApp from './assets/pages/auth/login';
-import RegisterApp from './assets/pages/auth/register';
+import './page.css'
+import SwiperOnboard from "./pages/onboarding/onboard";
+import Dashboard from "./pages/dashboard/dashboard";
+import OnboardingLast from './pages/onboarding/onboard_last';
+import LoginApp from './pages/auth/login';
+import RegisterApp from './pages/auth/register';
 import { ProtectedRoute }  from './components/protectedRoute';
 import { AuthProvider } from "./hooks/useAuth";
 

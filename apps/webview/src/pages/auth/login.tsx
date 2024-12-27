@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import { useAuth } from "../../../hooks/useAuth";
-import '../../css/auth/login.css';
-import '../../css/onboard/onboard.css';
+import { useAuth } from "../../hooks/useAuth";
+import './login.css';
 
 interface LoginFormInputs {
   email: string;
@@ -31,11 +30,11 @@ interface LoginResponse {
 
 const LoginApp: React.FC = () => {
   const auth = useAuth();
-  
+
   if (!auth) {
     throw new Error('Authentication context not available');
   }
-  
+
   const { login } = auth;
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -137,7 +136,7 @@ const LoginApp: React.FC = () => {
 
         <div className="signup-prompt">
           <p>Don't have an account?</p>
-          <a href="#" className="signup-link">Sign up</a>
+          <a href="#" className="signup-link" onClick={()=> (navigate('/register'))}>Sign up</a>
         </div>
       </div>
 

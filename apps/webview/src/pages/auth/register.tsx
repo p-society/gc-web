@@ -1,8 +1,9 @@
+'use client'
 import React, { useState } from "react";
-import '../../css/auth/register.css';
+import './register.css';
 import { useNavigate } from "react-router-dom";
 import emailIcon from '/public/images/register/email.png';
-
+import { OTPInput, SlotProps } from "input-otp";
 // Define types for our form data
 interface UserFormData {
   email: string;
@@ -18,10 +19,10 @@ interface UserFormData {
 
 const RegisterApp: React.FC = () => {
   const navigate = useNavigate();
-  
+
   // Track the current step of registration
   const [step, setStep] = useState<number>(1);
-  
+
   // State for form data
   const [formData, setFormData] = useState<UserFormData>({
     email: '',
@@ -38,7 +39,6 @@ const RegisterApp: React.FC = () => {
   // State for OTP
   const [otp, setOtp] = useState<string>('');
   const [otpError, setOtpError] = useState<string>('');
-
   // Handle input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -53,6 +53,25 @@ const RegisterApp: React.FC = () => {
     // Add your OTP sending logic here
     setStep(2);
   };
+
+  const handleOTPVerification = () => {
+    window.alert('OTP verified');
+  };
+  // Slot component for OTP input-otp
+  const Slot = (props: SlotProps) => {
+    return (
+      <div
+        className={`otp-slot ${props.isActive ? 'active' : ''} ${props.char ? 'filled' : ''}`}
+      >
+        <div className="otp-char">
+          {props.char ?? props.placeholderChar}
+        </div>
+        {props.isActive && (
+          <div className="caret" />
+        )}
+      </div>
+    );
+  }
 
   // Render different steps
   const renderStep = () => {
@@ -79,17 +98,52 @@ const RegisterApp: React.FC = () => {
             </div>
           </div>
         );
-      
+
       case 2:
         return (
           <div className="register-step">
-            <h2>Your entered email address is</h2>
-            <p className="email-display">{formData.email}</p>
-            <p>Enter the OTP sent to your email address</p>
-            {/* Add OTP input fields here */}
-            <button onClick={() => setStep(3)}>VERIFY</button>
-          </div>
-        );
+            <h2 className="text-white">Your entered email address is</h2>
+            <p className="email-display text-[#92E3A9]">{formData.email}</p>
+            <p className="text-white mt-4">Enter the OTP sent to your email address</p>
+            <div className="otp-container my-8">
+              <OTPInput
+                className="otp-input"
+                maxLength={6}
+                type="text"
+                pattern="\d*"
+                inputMode="numeric"
+                value={otp}
+                onChange={(value) => {
+                  if (/^\d*$/.test(value)) {
+                    setOtp(value);
+                  }
+                }}
+                onComplete={handleOTPVerification}
+                containerClassName="otp-input-container"
+                render={({ slots }) => (
+                  <div className="otp-wrapper">
+                    {slots.map((slot, idx) => (
+                      <Slot key={idx} {...slot} />
+                    ))}
+                  </div>
+                )}
+              />
+            </div>
+              {otpError && <p className="text-red-500 text-sm mt-2">{otpError}</p>}
+              <button
+                className="w-full bg-[#92E3A9] text-black py-3 rounded-full mt-4 font-medium"
+                onClick={() => {
+                  if (otp.length === 6) {
+                    setStep(3);
+                  } else {
+                    setOtpError('Please enter a valid 6-digit OTP');
+                  }
+                }}
+              >
+                VERIFY
+              </button>
+            </div>
+          );
 
       case 3:
         return (
@@ -141,17 +195,17 @@ const RegisterApp: React.FC = () => {
       <button className="back-button" onClick={() =>  navigate('/onboarding-last')}>
         ←
       </button>
-      
+
       {renderStep()}
-      
-      <img 
-        className="vector1" 
-        src="/public/images/onboard_last/Vector1.png" 
+
+      <img
+        className="vector1"
+        src="/public/images/onboard_last/Vector1.png"
         alt="Decorative vector"
       />
-      <img 
-        className="vector2" 
-        src="/public/images/onboard_last/Vector2.png" 
+      <img
+        className="vector2"
+        src="/public/images/onboard_last/Vector2.png"
         alt="Decorative vector"
       />
     </div>

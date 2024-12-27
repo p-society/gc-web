@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import "../../css/onboard/onboard.css";
+import "./onboard.css";
 
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();

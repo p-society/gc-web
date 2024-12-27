@@ -29,5 +29,14 @@ export function useLocalStorage<T> (keyName: string, defaultValue: T){
       console.log(`Error setting localStorage key "${keyName}":`, err);
     }
   };
-  return [storedValue, setValue] as const;
+
+  const clearValue = () => {
+    try {
+      window.localStorage.removeItem(keyName);
+      setStoredValue(defaultValue);
+    } catch (err) {
+      console.log(`Error clearing localStorage key "${keyName}":`, err);
+    }
+  }
+  return [storedValue, setValue, clearValue] as const;
 };

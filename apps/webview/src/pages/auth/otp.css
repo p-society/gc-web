@@ -1,0 +1,15 @@
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.otp-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.otp-container:has(:disabled) {
+  opacity: 0.3;
+}
+

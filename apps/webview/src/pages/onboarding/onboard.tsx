@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
 
-import "../../css/onboard/onboard.css";
+import "./onboard.css";
 
 const SwiperOnboard: React.FC = () => {
     const swiperRef = useRef<SwiperRef | null>(null);

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../css/onboard/onboard.css";
+import "./onboard.css";
 
 const OnboardingLast: FC = () => {
     const navigate = useNavigate();

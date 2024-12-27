@@ -11,7 +11,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider: React.FC<{ children?: ReactNode }> = ({children}) => {
-  const [userData, setUserData] = useLocalStorage<string | null>("userData", null);
+  const [userData, setUserData, clearUserData] = useLocalStorage<string | null>("userData", null);
   const navigate = useNavigate();
 
   // call this function when you want to authenticate the user
